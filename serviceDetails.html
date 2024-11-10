@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Service Details</title>
+    <!-- Include Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #f4f7fc;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background-color: #4CAF50;
+            color: white;
+            padding: 20px 0;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        header h1 {
+            margin: 0;
+            font-family: 'Roboto', sans-serif;
+            font-weight: 500;
+            font-size: 24px;
+        }
+
+        .service-details {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 40px;
+            margin: 40px 5%;
+            background-color: white;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .service-details img {
+            width: 100%;
+            height: auto;
+            border-radius: 10px;
+            object-fit: cover;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .service-info {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .service-info h2 {
+            font-size: 28px;
+            color: #333;
+            margin-bottom: 15px;
+        }
+
+        .service-info p {
+            color: #666;
+            font-size: 16px;
+            line-height: 1.6;
+        }
+
+        .pricing {
+            font-size: 20px;
+            font-weight: 600;
+            margin: 20px 0;
+            color: #4CAF50;
+        }
+
+        .booking-btn {
+            background-color: #4CAF50;
+            color: white;
+            padding: 15px 25px;
+            border: none;
+            border-radius: 30px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            text-transform: uppercase;
+        }
+
+        .booking-btn:hover {
+            background-color: #45a049;
+        }
+
+        .reviews {
+            margin-top: 30px;
+        }
+
+        .reviews h3 {
+            font-size: 22px;
+            color: #333;
+            margin-bottom: 20px;
+            font-weight: 600;
+        }
+
+        .review-card {
+            background-color: #f9f9f9;
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 15px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .review-card p {
+            color: #555;
+            font-size: 16px;
+        }
+
+        .review-card .review-author {
+            font-weight: 600;
+            color: #4CAF50;
+        }
+
+        .review-card .review-rating {
+            color: #ffcc00;
+            font-size: 18px;
+        }
+
+        form textarea {
+            width: 100%;
+            padding: 12px;
+            margin-top: 10px;
+            border-radius: 8px;
+            border: 1px solid #ddd;
+            font-size: 16px;
+            resize: none;
+            height: 120px;
+        }
+
+        form button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 12px 30px;
+            border: none;
+            border-radius: 30px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            margin-top: 10px;
+        }
+
+        form button:hover {
+            background-color: #45a049;
+        }
+
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Service Details</h1>
+    </header>
+
+    <!-- Service Details Section -->
+    <section class="service-details">
+        <img src="service-image.jpg" alt="Service Image">
+
+        <div class="service-info">
+            <h2>Web Design by John Doe</h2>
+            <p><strong>Category:</strong> Design</p>
+            <p><strong>Service Description:</strong> We offer professional web design services for businesses and personal projects. From responsive designs to e-commerce solutions, we create beautiful and functional websites tailored to your needs.</p>
+            <p><strong>Availability:</strong> Available Monday - Friday, 9 AM - 6 PM</p>
+
+            <div class="pricing">
+                <p>Price: $500</p>
+                <p><strong>Discount:</strong> 10% off for new clients!</p>
+            </div>
+
+            <button class="booking-btn">Book Now</button>
+        </div>
+    </section>
+
+    <!-- Reviews Section -->
+    <section class="reviews">
+        <h3>Customer Reviews</h3>
+
+        <div class="review-card">
+            <p class="review-author">Jane Smith</p>
+            <p class="review-rating">★★★★☆</p>
+            <p>This web design service is fantastic! My website looks modern and performs great. Would recommend!</p>
+        </div>
+
+        <div class="review-card">
+            <p class="review-author">Mark Johnson</p>
+            <p class="review-rating">★★★★★</p>
+            <p>Excellent service! John really understood my requirements and delivered a fantastic website.</p>
+        </div>
+
+        <!-- Add a form for users to leave a review -->
+        <form>
+            <label for="review">Leave a review:</label>
+            <textarea id="review" placeholder="Write your review here..."></textarea><br><br>
+            <button type="submit">Submit Review</button>
+        </form>
+    </section>
+
+</body>
+</html>

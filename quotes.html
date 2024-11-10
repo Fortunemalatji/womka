@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quotes and Payments</title>
+    <!-- Include Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #f4f7fc;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background-color: #4CAF50;
+            color: white;
+            padding: 20px 0;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        header h1 {
+            margin: 0;
+            font-family: 'Roboto', sans-serif;
+            font-weight: 500;
+            font-size: 24px;
+        }
+
+        .container {
+            margin: 40px 5%;
+        }
+
+        .quote-form,
+        .quote-summary,
+        .payment-section {
+            background-color: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            margin-bottom: 40px;
+        }
+
+        .quote-form h2,
+        .quote-summary h2,
+        .payment-section h2 {
+            font-size: 22px;
+            color: #333;
+            margin-bottom: 15px;
+        }
+
+        .quote-form label,
+        .quote-summary label {
+            font-size: 16px;
+            color: #666;
+        }
+
+        .quote-form input,
+        .quote-form select,
+        .quote-form textarea {
+            width: 100%;
+            padding: 12px;
+            margin-top: 10px;
+            border-radius: 8px;
+            border: 1px solid #ddd;
+            font-size: 16px;
+        }
+
+        .quote-form button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 15px 25px;
+            border: none;
+            border-radius: 30px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            text-transform: uppercase;
+            margin-top: 20px;
+        }
+
+        .quote-form button:hover {
+            background-color: #45a049;
+        }
+
+        .quote-summary {
+            border: 1px solid #ddd;
+            border-radius: 10px;
+        }
+
+        .quote-summary p {
+            font-size: 16px;
+            color: #666;
+            margin-bottom: 10px;
+        }
+
+        .quote-summary .price {
+            font-size: 20px;
+            font-weight: 600;
+            color: #4CAF50;
+        }
+
+        .payment-section .payment-method {
+            font-size: 16px;
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        .payment-method input[type="radio"] {
+            margin-right: 10px;
+        }
+
+        .payment-btn {
+            background-color: #4CAF50;
+            color: white;
+            padding: 15px 25px;
+            border: none;
+            border-radius: 30px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            text-transform: uppercase;
+        }
+
+        .payment-btn:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Quote and Payment</h1>
+    </header>
+
+    <div class="container">
+        <!-- Quote Request Form -->
+        <div class="quote-form">
+            <h2>Request a Quote</h2>
+            <form id="quote-form">
+                <label for="service">Select Service</label>
+                <select id="service" name="service">
+                    <option value="web-design">Web Design</option>
+                    <option value="app-development">App Development</option>
+                    <option value="seo-optimization">SEO Optimization</option>
+                </select>
+                
+                <label for="details">Additional Details</label>
+                <textarea id="details" name="details" placeholder="Enter any specific requirements"></textarea>
+                
+                <label for="budget">Budget</label>
+                <input type="number" id="budget" name="budget" placeholder="Enter your estimated budget">
+                
+                <button type="submit">Get Quote</button>
+            </form>
+        </div>
+
+        <!-- Quote Summary -->
+        <div class="quote-summary" id="quote-summary" style="display: none;">
+            <h2>Your Quote Summary</h2>
+            <p><strong>Service Selected:</strong> <span id="summary-service"></span></p>
+            <p><strong>Additional Details:</strong> <span id="summary-details"></span></p>
+            <p><strong>Estimated Budget:</strong> $<span id="summary-budget"></span></p>
+            <p class="price">Total Quote: $<span id="quote-total"></span></p>
+        </div>
+
+        <!-- Payment Section -->
+        <div class="payment-section" id="payment-section" style="display: none;">
+            <h2>Payment Details</h2>
+            <p class="payment-method">
+                <input type="radio" id="credit-card" name="payment-method" value="credit-card">
+                <label for="credit-card">Credit Card</label>
+            </p>
+            <p class="payment-method">
+                <input type="radio" id="paypal" name="payment-method" value="paypal">
+                <label for="paypal">PayPal</label>
+            </p>
+            <p class="payment-method">
+                <input type="radio" id="bank-transfer" name="payment-method" value="bank-transfer">
+                <label for="bank-transfer">Bank Transfer</label>
+            </p>
+
+            <button class="payment-btn" onclick="processPayment()">Proceed to Payment</button>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('quote-form').addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            // Get values from form
+            const service = document.getElementById('service').value;
+            const details = document.getElementById('details').value;
+            const budget = document.getElementById('budget').value;
+
+            // Display quote summary
+            document.getElementById('summary-service').textContent = service;
+            document.getElementById('summary-details').textContent = details;
+            document.getElementById('summary-budget').textContent = budget;
+
+            // Calculate total (for simplicity, using a fixed formula)
+            let total = parseInt(budget) + 50;  // Adding a processing fee
+            document.getElementById('quote-total').textContent = total;
+
+            // Show quote summary and payment section
+            document.getElementById('quote-summary').style.display = 'block';
+            document.getElementById('payment-section').style.display = 'block';
+        });
+
+        function processPayment() {
+            // Get selected payment method
+            const paymentMethod = document.querySelector('input[name="payment-method"]:checked').value;
+
+            if (paymentMethod) {
+                alert(`Payment through ${paymentMethod} is being processed. Thank you for your business!`);
+            } else {
+                alert('Please select a payment method.');
+            }
+        }
+    </script>
+
+</body>
+</html>

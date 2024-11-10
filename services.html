@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Services Offered by Professionals</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Navbar */
+        nav {
+            background-color: #333;
+            color: white;
+            padding: 10px 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        nav .logo {
+            font-size: 24px;
+            margin-left: 20px;
+        }
+
+        nav .nav-links {
+            display: flex;
+            margin-right: 20px;
+        }
+
+        nav .nav-links a {
+            color: white;
+            padding: 10px 20px;
+            text-decoration: none;
+            margin: 0 10px;
+            font-size: 16px;
+        }
+
+        nav .nav-links a:hover {
+            background-color: #007bff;
+            border-radius: 5px;
+        }
+
+        nav .profile {
+            padding: 10px 20px;
+            font-size: 16px;
+            background-color: #007bff;
+            border-radius: 5px;
+        }
+
+        nav .profile a {
+            color: white;
+            text-decoration: none;
+        }
+
+        nav .profile a:hover {
+            color: #fff;
+        }
+
+        /* Header */
+        header {
+            background-color: #333;
+            color: white;
+            padding: 20px 0;
+            text-align: center;
+        }
+
+        header h1 {
+            margin: 0;
+        }
+
+        /* Search and Filter Section */
+        .search-filter {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin: 20px;
+            background-color: #fff;
+            padding: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .search-filter input {
+            padding: 10px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            width: 50%;
+            font-size: 16px;
+        }
+
+        .filter-group {
+            display: flex;
+            align-items: center;
+        }
+
+        .filter-group select {
+            padding: 10px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+
+        .filter-group label {
+            margin-right: 10px;
+            font-size: 16px;
+        }
+
+        /* Service Listings */
+        .services-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 20px;
+            padding: 20px;
+        }
+
+        .service-card {
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        .service-card h2 {
+            margin-top: 0;
+            color: #333;
+        }
+
+        .service-card p {
+            color: #555;
+            font-size: 14px;
+        }
+
+        .service-card button {
+            background-color: #007bff;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            border-radius: 5px;
+            margin-top: 10px;
+        }
+
+        .service-card button:hover {
+            background-color: #0056b3;
+        }
+
+        /* Pagination */
+        .pagination {
+            display: flex;
+            justify-content: center;
+            padding: 20px 0;
+        }
+
+        .pagination a {
+            margin: 0 5px;
+            padding: 10px 15px;
+            background-color: #007bff;
+            color: white;
+            border-radius: 5px;
+            text-decoration: none;
+        }
+
+        .pagination a:hover {
+            background-color: #0056b3;
+        }
+
+        .pagination a.active {
+            background-color: #333;
+        }
+
+        .pagination a.disabled {
+            background-color: #ccc;
+            pointer-events: none;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Navbar -->
+    <header>
+        <nav>
+            <div class="logo">ProServices</div>
+            <div class="nav-links">
+                <a href="#home">Home</a>
+                <a href="#services">Services</a>
+                <a href="#about">About</a>
+                <a href="#contact">Contact</a>
+            </div>
+            <div class="profile">
+                <a href="#profile">Profile</a>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Search and Filter Section -->
+    <section class="search-filter">
+        <input type="text" id="search" placeholder="Search for services...">
+
+        <div class="filter-group">
+            <label for="category">Category:</label>
+            <select id="category">
+                <option value="">All Categories</option>
+                <option value="design">Design</option>
+                <option value="development">Development</option>
+                <option value="marketing">Marketing</option>
+                <option value="writing">Writing</option>
+            </select>
+        </div>
+
+        <div class="filter-group">
+            <label for="sort">Sort by:</label>
+            <select id="sort">
+                <option value="name">Name</option>
+                <option value="price">Price</option>
+                <option value="rating">Rating</option>
+            </select>
+        </div>
+    </section>
+
+    <!-- Service Listings -->
+    <section class="services-list" id="service-list">
+        <!-- Service Card Example -->
+        <div class="service-card">
+            <h2>Web Design</h2>
+            <p><strong>Category:</strong> Design</p>
+            <p><strong>Price:</strong> $500</p>
+            <p><strong>Rating:</strong> ★★★★☆</p>
+            <button>View Details</button>
+        </div>
+
+        <!-- Add more service cards here -->
+    </section>
+
+    <!-- Pagination -->
+    <section class="pagination">
+        <a href="#" class="disabled">Previous</a>
+        <a href="#" class="active">1</a>
+        <a href="#">2</a>
+        <a href="#">3</a>
+        <a href="#">Next</a>
+    </section>
+
+    <script>
+        // Example functionality for applying filters and pagination
+        const serviceList = document.getElementById('service-list');
+        const searchInput = document.getElementById('search');
+        const categorySelect = document.getElementById('category');
+        const sortSelect = document.getElementById('sort');
+
+        // Mock data for services
+        const services = [
+            { title: 'Web Design', category: 'Design', price: 500, rating: 4, description: 'A professional web design service for your business.' },
+            { title: 'App Development', category: 'Development', price: 1000, rating: 5, description: 'Develop a custom app for your needs.' },
+            { title: 'Social Media Marketing', category: 'Marketing', price: 300, rating: 4, description: 'Increase your brand presence on social media.' },
+            { title: 'Content Writing', category: 'Writing', price: 200, rating: 3, description: 'High-quality content for blogs, websites, and more.' },
+            // Add more services here
+        ];
+
+        // Function to filter and sort services
+        function filterServices() {
+            const searchTerm = searchInput.value.toLowerCase();
+            const category = categorySelect.value;
+            const sortBy = sortSelect.value;
+
+            // Filter services based on search term and category
+            const filteredServices = services.filter(service => {
+                return (
+                    service.title.toLowerCase().includes(searchTerm) &&
+                    (category ? service.category.toLowerCase() === category : true)
+                );
+            });
+
+            // Sort the services based on selected criteria
+            filteredServices.sort((a, b) => {
+                if (sortBy === 'name') {
+                    return a.title.localeCompare(b.title);
+                } else if (sortBy === 'price') {
+                    return a.price - b.price;
+                } else if (sortBy === 'rating') {
+                    return b.rating - a.rating;
+                }
+                return 0;
+            });
+
+            // Clear the current service list
+            serviceList.innerHTML = '';
+
+            // Display filtered and sorted services
+            filteredServices.forEach(service => {
+                const serviceCard = document.createElement('div');
+                serviceCard.classList.add('service-card');
+                serviceCard.innerHTML = `
+                    <h2>${service.title}</h2>
+                    <p><strong>Category:</strong> ${service.category}</p>
+                    <p><strong>Price:</strong> $${service.price}</p>
+                    <p><strong>Rating:</strong> ${'★'.repeat(service.rating)}${'☆'.repeat(5 - service.rating)}</p>
+                    <button>View Details</button>
+                `;
+                serviceList.appendChild(serviceCard);
+            });
+        }
+
+        // Event listeners for search and filter inputs
+        searchInput.addEventListener('input', filterServices);
+        categorySelect.addEventListener('change', filterServices);
+        sortSelect.addEventListener('change', filterServices);
+
+        // Initial call to display all services
+        filterServices();
+    </script>
+
+</body>
+
+</html>
